@@ -4,4 +4,4 @@ import Bible
 
 let val = rootAndOffspringOfDavid()
 
-print("\(val)")
+print("\(val.names())")
