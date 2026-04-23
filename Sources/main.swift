@@ -2,6 +2,7 @@
 // https://docs.swift.org/swift-book
 import Bible
 
-let val = rootAndOffspringOfDavid()
-
-print("\(val.names())")
+print("\(arcRootAndOffspringOfDavid())")
+print("\(arcRootAndOffspringOfDavid().names())")
+print("\(boxRootAndOffspringOfDavid())")
+print("\(boxRootAndOffspringOfDavid().names())")
