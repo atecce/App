@@ -1,4 +1,7 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
+import Bible
 
-print("Hello, world!")
+let val = rootAndOffspringOfDavid()
+
+print("\(val)")
