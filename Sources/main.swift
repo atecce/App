@@ -2,7 +2,19 @@
 // https://docs.swift.org/swift-book
 import Bible
 
-print("\(arcRootAndOffspringOfDavid())")
-print("\(arcRootAndOffspringOfDavid().names())")
+func arc_genealogy(daemon: ArcDaemon?) {
+	var cur = daemon!.father()
+	while cur != nil {
+		print(cur!.names())
+		cur = cur!.father()
+	}
+}
+
+let jesus = arcRootAndOffspringOfDavid()
+
+print("\(jesus)")
+print("\(jesus.names())")
 print("\(boxRootAndOffspringOfDavid())")
 print("\(boxRootAndOffspringOfDavid().names())")
+
+arc_genealogy(daemon: jesus)
