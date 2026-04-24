@@ -15,17 +15,14 @@ struct ContentView: View {
 
     var body: some View {
         let jesus = Bible.boxRootAndOffspringOfDavid()
-        let word = Bible.readAll()
+        let bible = Bible.readAll()
         NavigationSplitView {
             List {
-                ForEach(items) { item in
+                ForEach(jesus.words(), id: \.self) { word in
                     NavigationLink {
-                        Text("\(jesus.names())")
-                        Text("\(jesus.words())")
-                        Text("\(jesus.deeds())")
-                        Text("\(word[Name.matthew]?[4][12])")
+                        Text("\(bible[word.book.name]![Int(word.chapter)-1][Int(word.verses[0])-1...Int(word.verses[1])-1])")
                     } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        Text("\(word.book.name) \(word.chapter):\(word.verses[0])-\(word.verses[1])")
                     }
                 }
                 .onDelete(perform: deleteItems)
