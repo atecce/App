@@ -14,7 +14,7 @@ struct ContentView: View {
     @Query private var items: [Item]
 
     var body: some View {
-        let jesus = Bible.arcRootAndOffspringOfDavid()
+        let jesus = Bible.boxRootAndOffspringOfDavid()
         NavigationSplitView {
             List {
                 ForEach(items) { item in
