@@ -18,7 +18,7 @@ struct ContentView: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        Text("\(Bible.boxRootAndOffspringOfDavid().names())")
                     } label: {
                         Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
                     }
@@ -50,7 +50,6 @@ struct ContentView: View {
             let newItem = Item(timestamp: Date())
             modelContext.insert(newItem)
         }
-        print(Bible.boxRootAndOffspringOfDavid().names())
     }
 
     private func deleteItems(offsets: IndexSet) {
