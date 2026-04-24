@@ -14,11 +14,14 @@ struct ContentView: View {
     @Query private var items: [Item]
 
     var body: some View {
+        let jesus = Bible.arcRootAndOffspringOfDavid()
         NavigationSplitView {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("\(Bible.boxRootAndOffspringOfDavid().names())")
+                        Text("\(jesus.names())")
+                        Text("\(jesus.words())")
+                        Text("\(jesus.deeds())")
                     } label: {
                         Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
                     }
