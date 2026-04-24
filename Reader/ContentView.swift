@@ -15,6 +15,7 @@ struct ContentView: View {
 
     var body: some View {
         let jesus = Bible.boxRootAndOffspringOfDavid()
+        let word = Bible.readAll()
         NavigationSplitView {
             List {
                 ForEach(items) { item in
@@ -22,6 +23,7 @@ struct ContentView: View {
                         Text("\(jesus.names())")
                         Text("\(jesus.words())")
                         Text("\(jesus.deeds())")
+                        Text("\(word[Name.matthew]?[4][12])")
                     } label: {
                         Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
                     }
