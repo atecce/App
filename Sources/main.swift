@@ -10,11 +10,11 @@ func arc_genealogy(daemon: ArcDaemon?) {
 	}
 }
 
-let jesus = arcRootAndOffspringOfDavid()
+let יֵשׁוּ = arcRootAndOffspringOfDavid()
 
-print("\(jesus)")
-print("\(jesus.names())")
+print("\(יֵשׁוּ)")
+print("\(יֵשׁוּ.names())")
 print("\(boxRootAndOffspringOfDavid())")
 print("\(boxRootAndOffspringOfDavid().names())")
 
-arc_genealogy(daemon: jesus)
+arc_genealogy(daemon: יֵשׁוּ)
