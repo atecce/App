@@ -22,7 +22,7 @@ struct ContentView: View {
                     NavigationLink {
                         Text("\(bible[word.book.name]![Int(word.chapter)-1][Int(word.verses[0])-1...Int(word.verses[1])-1])")
                     } label: {
-                        Text("\(word.book.name) \(word.chapter):\(word.verses[0])-\(word.verses[1])")
+                        Text("\(word.book.name)".capitalized + " \(word.chapter):\(word.verses[0])-\(word.verses[1])")
                     }
                 }
                 .onDelete(perform: deleteItems)
