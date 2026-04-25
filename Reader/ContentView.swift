@@ -14,11 +14,11 @@ struct ContentView: View {
     @Query private var items: [Item]
 
     var body: some View {
-        let jesus = Bible.boxRootAndOffspringOfDavid()
+        let יֵשׁוּ = Bible.boxRootAndOffspringOfDavid()
         let bible = Bible.readAll()
         NavigationSplitView {
             List {
-                ForEach(jesus.words(), id: \.self) { word in
+                ForEach(יֵשׁוּ.words(), id: \.self) { word in
                     NavigationLink {
                         Text("\(bible[word.book.name]![Int(word.chapter)-1][Int(word.verses[0])-1...Int(word.verses[1])-1])")
                     } label: {
