@@ -16,6 +16,7 @@
 		7310F8AA2F9AD72F00EF3458 /* ReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310F8A92F9AD72F00EF3458 /* ReaderUITests.swift */; };
 		7310F8AC2F9AD72F00EF3458 /* ReaderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310F8AB2F9AD72F00EF3458 /* ReaderUITestsLaunchTests.swift */; };
 		7310F8BA2F9ADA3A00EF3458 /* Bible in Frameworks */ = {isa = PBXBuildFile; productRef = 7310F8B92F9ADA3A00EF3458 /* Bible */; };
+		738396E02F9C4ECE00918E0A /* BibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738396DF2F9C4ECE00918E0A /* BibleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		7310F8A52F9AD72F00EF3458 /* ReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7310F8A92F9AD72F00EF3458 /* ReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderUITests.swift; sourceTree = "<group>"; };
 		7310F8AB2F9AD72F00EF3458 /* ReaderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		738396DF2F9C4ECE00918E0A /* BibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				7310F88B2F9AD72E00EF3458 /* ReaderApp.swift */,
 				7310F88D2F9AD72E00EF3458 /* ContentView.swift */,
+				738396DF2F9C4ECE00918E0A /* BibleView.swift */,
 				7310F88F2F9AD72E00EF3458 /* Item.swift */,
 				7310F8912F9AD72F00EF3458 /* Assets.xcassets */,
 				7310F8932F9AD72F00EF3458 /* Reader.entitlements */,
@@ -273,6 +276,7 @@
 				7310F88E2F9AD72E00EF3458 /* ContentView.swift in Sources */,
 				7310F8902F9AD72E00EF3458 /* Item.swift in Sources */,
 				7310F88C2F9AD72E00EF3458 /* ReaderApp.swift in Sources */,
+				738396E02F9C4ECE00918E0A /* BibleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

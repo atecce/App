@@ -5,6 +5,7 @@
 //  Created by Alessandro Tecce on 4/23/26.
 //
 
+import Bible
 import SwiftUI
 import SwiftData
 
@@ -25,7 +26,16 @@ struct ReaderApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                VStack {
+                    NavigationLink("Go to Bible View") {
+                        BibleView(book: Name.revelation, chapter: 22, verse_start: 15, verse_end: 16)
+                    }
+                    NavigationLink("Go to Content View") {
+                        ContentView()
+                    }
+                }
+            }
         }
         .modelContainer(sharedModelContainer)
     }
