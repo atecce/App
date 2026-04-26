@@ -14,7 +14,7 @@ struct ContentView: View {
     @Query private var items: [Item]
 
     var body: some View {
-        let יֵשׁוּ = Bible.boxRootAndOffspringOfDavid()
+        let יֵשׁוּ = Bible.boxMorningStar()
         let bible = Bible.readAll()
         NavigationSplitView {
             List {
