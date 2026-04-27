@@ -34,3 +34,32 @@ print("\(boxMorningStar())")
 print("\(boxMorningStar().names())")
 
 arcGenealogy(daemon: יֵשׁוּ)
+
+let bible = Bible.readAll()
+print("\(bible)")
+
+for (name, chapter_and_verse) in bible {
+	print("\(name)")
+	for (chapter, verses) in chapter_and_verse.enumerated() {
+		print("\(chapter) \(verses)")
+	}
+}
+
+let encoder = JSONEncoder()
+encoder.outputFormatting = .prettyPrinted
+do {
+	let data = try encoder.encode(bible)
+	let fileManager = FileManager.default
+
+	var documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+	let fileURL = documentDirectory.appendingPathComponent("swift_word.json")
+
+	do {
+		try data.write(to: fileURL)
+		print("file saved at: \(fileURL)")
+	} catch {
+		print("writing to file failed: \(error)")
+	}
+} catch {
+	print("encoding failed: \(error)")
+}
