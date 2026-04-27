@@ -44,7 +44,9 @@ print("\(bible)")
 
 let encoder = JSONEncoder()
 encoder.outputFormatting = .prettyPrinted
-writeJSONFile(encoder: encoder, obj: bible, name: "swift_word")
+writeJSONFile(encoder: encoder, obj: Dictionary(uniqueKeysWithValues: bible.map { (k, v) in
+	("\(k)".capitalized, v)
+}), name: "swift_word")
 
 let tagger = NSLinguisticTagger(tagSchemes: [.nameType], options: 0)
 
@@ -68,7 +70,7 @@ for (book, chapter_and_verse) in bible {
 					let name = (text as NSString).substring(with: tokenRange)
 					print("\(book)".capitalized + " \(chapter):\(verse)")
 					print("\(name): \(tag)")
-					let src = UniffiSource(book: Book(name: book), chapter: UInt8(chapter)+1, verses: [UInt16(verse)+1, UInt16(verse)+1])
+					let src = UniffiSource(book: UniffiBook(name: "\(book)".capitalized), chapter: UInt8(chapter)+1, verses: [UInt16(verse)+1, UInt16(verse)+1])
 					index[name, default: []].append(src)
 				}
 			}
