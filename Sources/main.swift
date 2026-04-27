@@ -47,22 +47,20 @@ let tagger = NSLinguisticTagger(tagSchemes: [.nameType], options: 0)
 let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
 let tags: [NSLinguisticTag] = [.personalName]
 
-for (name, chapter_and_verse) in bible {
-	print("\(name)")
+for (book, chapter_and_verse) in bible {
 	for (chapter, verses) in chapter_and_verse.enumerated() {
-		for text in verses {
+		for (verse, text) in verses.enumerated() {
 
 			tagger.string = text
 
 			let range = NSRange(location: 0, length: text.utf16.count)
-
-			print("\(chapter) \(verses)")
 
 			tagger.enumerateTags(in: range, unit: .word, scheme: .nameType, options: options) {
 				tag, tokenRange, stop in
 
 				if let tag = tag, tags.contains(tag) {
 					let name = (text as NSString).substring(with: tokenRange)
+					print("\(book)".capitalized + " \(chapter):\(verse)")
 					print("\(name): \(tag)")
 				}
 			}
