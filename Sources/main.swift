@@ -11,21 +11,6 @@ func arcGenealogy(daemon: ArcDaemon?) {
 	}
 }
 
-let text = "John baptizes with water and Jesus baptizes with fire"
-let tagger = NSLinguisticTagger(tagSchemes: [.nameType], options: 0)
-tagger.string = text
-let range = NSRange(location: 0, length: text.utf16.count)
-let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
-let tags: [NSLinguisticTag] = [.personalName]
-tagger.enumerateTags(in: range, unit: .word, scheme: .nameType, options: options) {
-	tag, tokenRange, stop in
-
-	if let tag = tag, tags.contains(tag) {
-		let name = (text as NSString).substring(with: tokenRange)
-		print("\(name): \(tag)")
-	}
-}
-
 let יֵשׁוּ = arcMorningStar()
 
 print("\(יֵשׁוּ)")
@@ -37,13 +22,6 @@ arcGenealogy(daemon: יֵשׁוּ)
 
 let bible = Bible.readAll()
 print("\(bible)")
-
-for (name, chapter_and_verse) in bible {
-	print("\(name)")
-	for (chapter, verses) in chapter_and_verse.enumerated() {
-		print("\(chapter) \(verses)")
-	}
-}
 
 let encoder = JSONEncoder()
 encoder.outputFormatting = .prettyPrinted
@@ -62,4 +40,30 @@ do {
 	}
 } catch {
 	print("encoding failed: \(error)")
+}
+
+for (name, chapter_and_verse) in bible {
+	print("\(name)")
+	for (chapter, verses) in chapter_and_verse.enumerated() {
+		for text in verses {
+			print("\(chapter) \(verses)")
+
+			let tagger = NSLinguisticTagger(tagSchemes: [.nameType], options: 0)
+			tagger.string = text
+
+			let range = NSRange(location: 0, length: text.utf16.count)
+			let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
+			let tags: [NSLinguisticTag] = [.personalName]
+
+			tagger.enumerateTags(in: range, unit: .word, scheme: .nameType, options: options) {
+				tag, tokenRange, stop in
+
+				if let tag = tag, tags.contains(tag) {
+					let name = (text as NSString).substring(with: tokenRange)
+					print("\(name): \(tag)")
+				}
+			}
+
+		}
+	}
 }
