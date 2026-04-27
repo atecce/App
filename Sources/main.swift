@@ -11,6 +11,25 @@ func arcGenealogy(daemon: ArcDaemon?) {
 	}
 }
 
+func writeJSONFile<T: Encodable>(encoder: JSONEncoder, obj: T, name: String) {
+	do {
+		let data = try encoder.encode(obj)
+		let fileManager = FileManager.default
+
+		let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+		let fileURL = documentDirectory.appendingPathComponent(name+".json")
+
+		do {
+			try data.write(to: fileURL)
+			print("file saved at: \(fileURL)")
+		} catch {
+			print("writing to file failed: \(error)")
+		}
+	} catch {
+		print("encoding failed: \(error)")
+	}
+}
+
 let יֵשׁוּ = arcMorningStar()
 
 print("\(יֵשׁוּ)")
@@ -25,22 +44,7 @@ print("\(bible)")
 
 let encoder = JSONEncoder()
 encoder.outputFormatting = .prettyPrinted
-do {
-	let data = try encoder.encode(bible)
-	let fileManager = FileManager.default
-
-	let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-	let fileURL = documentDirectory.appendingPathComponent("swift_word.json")
-
-	do {
-		try data.write(to: fileURL)
-		print("file saved at: \(fileURL)")
-	} catch {
-		print("writing to file failed: \(error)")
-	}
-} catch {
-	print("encoding failed: \(error)")
-}
+writeJSONFile(encoder: encoder, obj: bible, name: "swift_word")
 
 let tagger = NSLinguisticTagger(tagSchemes: [.nameType], options: 0)
 
@@ -74,22 +78,4 @@ for (book, chapter_and_verse) in bible {
 
 print(index)
 
-do {
-	let data = try encoder.encode(index)
-	print(data)
-	let fileManager = FileManager.default
-
-	let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-	let fileURL = documentDirectory.appendingPathComponent("swift_index.json")
-
-	do {
-		try data.write(to: fileURL)
-		print("file saved at: \(fileURL)")
-	} catch {
-		print("writing to file failed: \(error)")
-	}
-} catch {
-	print("encoding failed: \(error)")
-}
-
-
+writeJSONFile(encoder: encoder, obj: index, name: "swift_index")
