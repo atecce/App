@@ -42,18 +42,21 @@ do {
 	print("encoding failed: \(error)")
 }
 
+let tagger = NSLinguisticTagger(tagSchemes: [.nameType], options: 0)
+
+let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
+let tags: [NSLinguisticTag] = [.personalName]
+
 for (name, chapter_and_verse) in bible {
 	print("\(name)")
 	for (chapter, verses) in chapter_and_verse.enumerated() {
 		for text in verses {
-			print("\(chapter) \(verses)")
 
-			let tagger = NSLinguisticTagger(tagSchemes: [.nameType], options: 0)
 			tagger.string = text
 
 			let range = NSRange(location: 0, length: text.utf16.count)
-			let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
-			let tags: [NSLinguisticTag] = [.personalName]
+
+			print("\(chapter) \(verses)")
 
 			tagger.enumerateTags(in: range, unit: .word, scheme: .nameType, options: options) {
 				tag, tokenRange, stop in
