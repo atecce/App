@@ -20,8 +20,7 @@ struct ContentView: View {
             List {
                 ForEach(יֵשׁוּ.words(), id: \.self) { word in
                     NavigationLink {
-                        let chapters = bible[word.book.name]!
-                        Text("\(chapters[Int(word.chapter)-1][Int(word.verses[0])-1...Int(word.verses[1])-1])")
+                        Text("\(bible[word.book.name]![Int(word.chapter)-1][Int(word.verses[0])-1...Int(word.verses[1])-1])")
                     } label: {
                         Text("\(word.book.name)".capitalized + " \(word.chapter):\(word.verses[0])-\(word.verses[1])")
                     }

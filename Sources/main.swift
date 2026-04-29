@@ -70,7 +70,7 @@ for (book, chapter_and_verse) in word {
 					let name = (text as NSString).substring(with: tokenRange)
 					print("\(book)".capitalized + " \(chapter):\(verse)")
 					print("\(name): \(tag)")
-					let src = UniffiSource(book: UniffiBook(name: "\(book)".capitalized), chapter: UInt8(chapter)+1, verses: [UInt16(verse)+1, UInt16(verse)+1])
+					let src = UniffiSource(book: Book(name: book), chapter: UInt8(chapter)+1, verses: [UInt16(verse)+1, UInt16(verse)+1])
 					index[name, default: []].append(src)
 				}
 			}
