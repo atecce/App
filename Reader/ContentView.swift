@@ -15,12 +15,13 @@ struct ContentView: View {
 
     var body: some View {
         let יֵשׁוּ = Bible.boxMorningStar()
-        let bible = Bible.readAll()
+        let bible = Bible.getWord()
         NavigationSplitView {
             List {
                 ForEach(יֵשׁוּ.words(), id: \.self) { word in
                     NavigationLink {
-                        Text("\(bible[word.book.name]![Int(word.chapter)-1][Int(word.verses[0])-1...Int(word.verses[1])-1])")
+                        let chapters = bible[word.book.name]!
+                        Text("\(chapters[Int(word.chapter)-1][Int(word.verses[0])-1...Int(word.verses[1])-1])")
                     } label: {
                         Text("\(word.book.name)".capitalized + " \(word.chapter):\(word.verses[0])-\(word.verses[1])")
                     }

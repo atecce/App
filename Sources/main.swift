@@ -39,12 +39,12 @@ print("\(boxMorningStar().names())")
 
 arcGenealogy(daemon: יֵשׁוּ)
 
-let bible = Bible.readAll()
-print("\(bible)")
+let word = Bible.getWord()
+print("\(word)")
 
 let encoder = JSONEncoder()
 encoder.outputFormatting = .prettyPrinted
-writeJSONFile(encoder: encoder, obj: Dictionary(uniqueKeysWithValues: bible.map { (k, v) in
+writeJSONFile(encoder: encoder, obj: Dictionary(uniqueKeysWithValues: word.map { (k, v) in
 	("\(k)".capitalized, v)
 }), name: "swift_word")
 
@@ -55,7 +55,7 @@ let tags: [NSLinguisticTag] = [.personalName]
 
 var index: [String: [UniffiSource]] = [:]
 
-for (book, chapter_and_verse) in bible {
+for (book, chapter_and_verse) in word {
 	for (chapter, verses) in chapter_and_verse.enumerated() {
 		for (verse, text) in verses.enumerated() {
 
