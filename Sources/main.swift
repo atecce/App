@@ -66,7 +66,7 @@ for (book, chapter_and_verse) in word {
 
 				if let tag = tag, tags.contains(tag) {
 					let name = (text as NSString).substring(with: tokenRange)
-					let src = UniffiSource(book: Book(name: book), chapter: UInt8(chapter)+1, verses: [UInt16(verse)+1, UInt16(verse)+1])
+					let src = UniffiSource(book: book, chapter: UInt8(chapter)+1, verses: [UInt16(verse)+1, UInt16(verse)+1])
 					index[name, default: []].append(src)
 				}
 			}
@@ -83,7 +83,7 @@ struct SwiftSource: Codable {
 writeJSONFile(encoder: encoder, obj: index.mapValues { sources in
 	sources.map { src in
 		SwiftSource(
-			book: "\(src.book.name)".capitalized,
+			book: "\(src.book)".capitalized,
 			chapter: src.chapter,
 			verses: src.verses
 		)
