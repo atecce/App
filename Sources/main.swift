@@ -66,8 +66,6 @@ for (book, chapter_and_verse) in word {
 
 				if let tag = tag, tags.contains(tag) {
 					let name = (text as NSString).substring(with: tokenRange)
-					print("\(book)".capitalized + " \(chapter):\(verse)")
-					print("\(name): \(tag)")
 					let src = UniffiSource(book: Book(name: book), chapter: UInt8(chapter)+1, verses: [UInt16(verse)+1, UInt16(verse)+1])
 					index[name, default: []].append(src)
 				}
@@ -76,8 +74,20 @@ for (book, chapter_and_verse) in word {
 	}
 }
 
-print(index)
+struct SwiftSource: Codable {
+	let book: String
+	let chapter: UInt8
+	let verses: [UInt16]
+}
 
-writeJSONFile(encoder: encoder, obj: index, name: "swift_index")
+writeJSONFile(encoder: encoder, obj: index.mapValues { sources in
+	sources.map { src in
+		SwiftSource(
+			book: "\(src.book.name)".capitalized,
+			chapter: src.chapter,
+			verses: src.verses
+		)
+	}
+}, name: "swift_index")
 
 arcGenealogy(daemon: יֵשׁוּ)
