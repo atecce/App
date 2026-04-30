@@ -37,8 +37,6 @@ print("\(יֵשׁוּ.names())")
 print("\(boxMorningStar())")
 print("\(boxMorningStar().names())")
 
-arcGenealogy(daemon: יֵשׁוּ)
-
 let word = Bible.getWord()
 print("\(word)")
 
@@ -81,3 +79,5 @@ for (book, chapter_and_verse) in word {
 print(index)
 
 writeJSONFile(encoder: encoder, obj: index, name: "swift_index")
+
+arcGenealogy(daemon: יֵשׁוּ)
