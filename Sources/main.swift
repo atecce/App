@@ -30,15 +30,7 @@ func writeJSONFile<T: Encodable>(encoder: JSONEncoder, obj: T, name: String) {
 	}
 }
 
-let יֵשׁוּ = arcMorningStar()
-
-print("\(יֵשׁוּ)")
-print("\(יֵשׁוּ.names())")
-print("\(boxMorningStar())")
-print("\(boxMorningStar().names())")
-
 let word = Bible.getWord()
-print("\(word)")
 
 let encoder = JSONEncoder()
 encoder.outputFormatting = .prettyPrinted
@@ -90,4 +82,13 @@ writeJSONFile(encoder: encoder, obj: index.mapValues { sources in
 	}
 }, name: "swift_index")
 
+let יֵשׁוּ = arcMorningStar()
+
 arcGenealogy(daemon: יֵשׁוּ)
+
+print("\(יֵשׁוּ)")
+print("\(יֵשׁוּ.names())")
+print("\(boxMorningStar())")
+print("\(boxMorningStar().names())")
+
+
