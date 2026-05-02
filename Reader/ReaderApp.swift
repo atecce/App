@@ -5,7 +5,7 @@
 //  Created by Alessandro Tecce on 4/23/26.
 //
 
-import Bible
+import Library
 import SwiftUI
 import SwiftData
 

@@ -1,6 +1,6 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
-import Bible
+import Library
 import Foundation
 
 func arcGenealogy(daemon: ArcDaemon?) {
@@ -30,7 +30,7 @@ func writeJSONFile<T: Encodable>(encoder: JSONEncoder, obj: T, name: String) {
 	}
 }
 
-let word = Bible.getWord()
+let word = Library.getWord()
 
 let encoder = JSONEncoder()
 encoder.outputFormatting = .prettyPrinted
@@ -91,4 +91,11 @@ print("\(יֵשׁוּ.names())")
 print("\(boxMorningStar())")
 print("\(boxMorningStar().names())")
 
+let alex = arcDefenderOfMen()
 
+arcGenealogy(daemon: alex)
+
+print("\(alex)")
+print("\(alex.names())")
+print("\(boxDefenderOfMen())")
+print("\(boxDefenderOfMen().names())")

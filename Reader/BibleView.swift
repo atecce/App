@@ -5,11 +5,11 @@
 //  Created by Alessandro Tecce on 4/24/26.
 //
 
-import Bible
+import Library
 import SwiftUI
 
 struct BibleView: View {
-    let word = Bible.getWord()
+    let word = Library.getWord()
     @State var book: Name
     @State var chapter: Int
     @State var verse_start: Int
@@ -20,6 +20,7 @@ struct BibleView: View {
     var body: some View {
         VStack {
             Text("\(text)")
+            Text("\(Library.boxDefenderOfMen().names())")
         }
     }
 }

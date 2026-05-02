@@ -15,7 +15,7 @@
 		7310F8A02F9AD72F00EF3458 /* ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310F89F2F9AD72F00EF3458 /* ReaderTests.swift */; };
 		7310F8AA2F9AD72F00EF3458 /* ReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310F8A92F9AD72F00EF3458 /* ReaderUITests.swift */; };
 		7310F8AC2F9AD72F00EF3458 /* ReaderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310F8AB2F9AD72F00EF3458 /* ReaderUITestsLaunchTests.swift */; };
-		7310F8BA2F9ADA3A00EF3458 /* Bible in Frameworks */ = {isa = PBXBuildFile; productRef = 7310F8B92F9ADA3A00EF3458 /* Bible */; };
+		7326660D2FA66FE200D86FB4 /* Library in Frameworks */ = {isa = PBXBuildFile; productRef = 7326660C2FA66FE200D86FB4 /* Library */; };
 		738396E02F9C4ECE00918E0A /* BibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738396DF2F9C4ECE00918E0A /* BibleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7310F8BA2F9ADA3A00EF3458 /* Bible in Frameworks */,
+				7326660D2FA66FE200D86FB4 /* Library in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +154,7 @@
 			);
 			name = Reader;
 			packageProductDependencies = (
-				7310F8B92F9ADA3A00EF3458 /* Bible */,
+				7326660C2FA66FE200D86FB4 /* Library */,
 			);
 			productName = Reader;
 			productReference = 7310F8882F9AD72E00EF3458 /* Reader.app */;
@@ -229,7 +229,7 @@
 			);
 			mainGroup = 7310F87F2F9AD72E00EF3458;
 			packageReferences = (
-				7310F8B82F9AD8FB00EF3458 /* XCLocalSwiftPackageReference "Bible" */,
+				7326660B2FA66FE200D86FB4 /* XCLocalSwiftPackageReference "Library" */,
 			);
 			productRefGroup = 7310F8892F9AD72E00EF3458 /* Products */;
 			projectDirPath = "";
@@ -627,16 +627,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		7310F8B82F9AD8FB00EF3458 /* XCLocalSwiftPackageReference "Bible" */ = {
+		7326660B2FA66FE200D86FB4 /* XCLocalSwiftPackageReference "Library" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = Bible;
+			relativePath = Library;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7310F8B92F9ADA3A00EF3458 /* Bible */ = {
+		7326660C2FA66FE200D86FB4 /* Library */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Bible;
+			productName = Library;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

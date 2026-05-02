@@ -5,7 +5,7 @@
 //  Created by Alessandro Tecce on 4/23/26.
 //
 
-import Bible
+import Library
 import SwiftUI
 import SwiftData
 
@@ -14,8 +14,8 @@ struct ContentView: View {
     @Query private var items: [Item]
 
     var body: some View {
-        let יֵשׁוּ = Bible.boxMorningStar()
-        let bible = Bible.getWord()
+        let יֵשׁוּ = Library.boxMorningStar()
+        let bible = Library.getWord()
         NavigationSplitView {
             List {
                 ForEach(יֵשׁוּ.words(), id: \.self) { word in
