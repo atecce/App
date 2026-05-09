@@ -72,6 +72,7 @@ struct SwiftSource: Codable {
 	let verses: [UInt16]
 }
 
+encoder.outputFormatting = .sortedKeys
 writeJSONFile(encoder: encoder, obj: index.mapValues { sources in
 	sources.map { src in
 		SwiftSource(
