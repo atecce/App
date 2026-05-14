@@ -43,7 +43,13 @@ let tagger = NSLinguisticTagger(tagSchemes: [.nameType], options: 0)
 let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
 let tags: [NSLinguisticTag] = [.personalName]
 
-var index: [String: [UniffiSource]] = [:]
+struct SwiftSource: Codable {
+	let book: String
+	let chapter: UInt8
+	let verses: [UInt16]
+}
+
+var index: [String: [SwiftSource]] = [:]
 
 for (book, chapter_and_verse) in word {
 	for (chapter, verses) in chapter_and_verse.enumerated() {
@@ -58,7 +64,7 @@ for (book, chapter_and_verse) in word {
 
 				if let tag = tag, tags.contains(tag) {
 					let name = (text as NSString).substring(with: tokenRange)
-					let src = UniffiSource(book: book, chapter: UInt8(chapter)+1, verses: [UInt16(verse)+1, UInt16(verse)+1])
+					let src = SwiftSource(book: "\(book)".capitalized, chapter: UInt8(chapter)+1, verses: [UInt16(verse)+1, UInt16(verse)+1])
 					index[name, default: []].append(src)
 				}
 			}
@@ -66,22 +72,8 @@ for (book, chapter_and_verse) in word {
 	}
 }
 
-struct SwiftSource: Codable {
-	let book: String
-	let chapter: UInt8
-	let verses: [UInt16]
-}
-
 encoder.outputFormatting = .sortedKeys
-writeJSONFile(encoder: encoder, obj: index.mapValues { sources in
-	sources.map { src in
-		SwiftSource(
-			book: "\(src.book)".capitalized,
-			chapter: src.chapter,
-			verses: src.verses
-		)
-	}
-}, name: "swift_index")
+writeJSONFile(encoder: encoder, obj: index, name: "swift_index")
 
 let יֵשׁוּ = arcMorningStar()
 
