@@ -17,6 +17,7 @@
 		7310F8AC2F9AD72F00EF3458 /* ReaderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310F8AB2F9AD72F00EF3458 /* ReaderUITestsLaunchTests.swift */; };
 		7326660D2FA66FE200D86FB4 /* Library in Frameworks */ = {isa = PBXBuildFile; productRef = 7326660C2FA66FE200D86FB4 /* Library */; };
 		738396E02F9C4ECE00918E0A /* BibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738396DF2F9C4ECE00918E0A /* BibleView.swift */; };
+		7387E1CD2FB656F100624A10 /* Library in Frameworks */ = {isa = PBXBuildFile; productRef = 7387E1CC2FB656F100624A10 /* Library */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7387E1CD2FB656F100624A10 /* Library in Frameworks */,
 				7326660D2FA66FE200D86FB4 /* Library in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +157,7 @@
 			name = Reader;
 			packageProductDependencies = (
 				7326660C2FA66FE200D86FB4 /* Library */,
+				7387E1CC2FB656F100624A10 /* Library */,
 			);
 			productName = Reader;
 			productReference = 7310F8882F9AD72E00EF3458 /* Reader.app */;
@@ -229,7 +232,7 @@
 			);
 			mainGroup = 7310F87F2F9AD72E00EF3458;
 			packageReferences = (
-				7326660B2FA66FE200D86FB4 /* XCLocalSwiftPackageReference "Library" */,
+				7387E1CB2FB656F100624A10 /* XCLocalSwiftPackageReference "Library" */,
 			);
 			productRefGroup = 7310F8892F9AD72E00EF3458 /* Products */;
 			projectDirPath = "";
@@ -627,7 +630,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		7326660B2FA66FE200D86FB4 /* XCLocalSwiftPackageReference "Library" */ = {
+		7387E1CB2FB656F100624A10 /* XCLocalSwiftPackageReference "Library" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Library;
 		};
@@ -635,6 +638,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		7326660C2FA66FE200D86FB4 /* Library */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Library;
+		};
+		7387E1CC2FB656F100624A10 /* Library */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Library;
 		};

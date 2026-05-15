@@ -20,9 +20,15 @@ struct ContentView: View {
             List {
                 ForEach(יֵשׁוּ.words(), id: \.self) { word in
                     NavigationLink {
-                        Text("\(bible[word.book]![Int(word.chapter)-1][Int(word.verses[0])-1...Int(word.verses[1])-1])")
+                        let src = try! Library.parseSource(string: word)
+                        let verses = bible[src.book]![Int(src.chapter)-1]
+                        if let end = src.end {
+                            Text("\(verses[Int(src.start)-1...Int(end)-1])")
+                        } else {
+                            Text("\(verses[Int(src.start)-1])")
+                        }
                     } label: {
-                        Text("\(word.book)".capitalized + " \(word.chapter):\(word.verses[0])-\(word.verses[1])")
+                        Text(word)
                     }
                 }
                 .onDelete(perform: deleteItems)
