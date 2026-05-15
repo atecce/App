@@ -43,13 +43,7 @@ let tagger = NSLinguisticTagger(tagSchemes: [.nameType], options: 0)
 let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
 let tags: [NSLinguisticTag] = [.personalName]
 
-struct SwiftSource: Codable {
-	let book: String
-	let chapter: UInt8
-	let verses: [UInt16]
-}
-
-var index: [String: [SwiftSource]] = [:]
+var index: [String: [String]] = [:]
 
 for (book, chapter_and_verse) in word {
 	for (chapter, verses) in chapter_and_verse.enumerated() {
@@ -64,7 +58,7 @@ for (book, chapter_and_verse) in word {
 
 				if let tag = tag, tags.contains(tag) {
 					let name = (text as NSString).substring(with: tokenRange)
-					let src = SwiftSource(book: "\(book)".capitalized, chapter: UInt8(chapter)+1, verses: [UInt16(verse)+1, UInt16(verse)+1])
+					let src = printSource(src: Source(book: book, chapter: Int64(chapter)+1, start: Int64(verse)+1, end: nil))
 					index[name, default: []].append(src)
 				}
 			}
