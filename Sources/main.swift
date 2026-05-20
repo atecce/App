@@ -30,6 +30,12 @@ func writeJSONFile<T: Encodable>(encoder: JSONEncoder, obj: T, name: String) {
 	}
 }
 
+extension Source: CustomStringConvertible {
+	public var description: String {
+		return fmtSource(src: self)
+	}
+}
+
 let word = Library.getWord()
 
 let encoder = JSONEncoder()
@@ -57,9 +63,8 @@ for (book, chapter_and_verse) in word {
 				tag, tokenRange, stop in
 
 				if let tag = tag, tags.contains(tag) {
-					let name = (text as NSString).substring(with: tokenRange)
-					let src = fmtSource(src: Source(book: book, chapter: Int64(chapter)+1, start: Int64(verse)+1, end: nil))
-					index[name, default: []].append(src)
+					index[(text as NSString).substring(with: tokenRange),
+						default: []].append("\(Source(book: book, chapter: Int64(chapter)+1, start: Int64(verse)+1, end: nil))")
 				}
 			}
 		}
