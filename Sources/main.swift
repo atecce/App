@@ -58,7 +58,7 @@ for (book, chapter_and_verse) in word {
 
 				if let tag = tag, tags.contains(tag) {
 					let name = (text as NSString).substring(with: tokenRange)
-					let src = printSource(src: Source(book: book, chapter: Int64(chapter)+1, start: Int64(verse)+1, end: nil))
+					let src = fmtSource(src: Source(book: book, chapter: Int64(chapter)+1, start: Int64(verse)+1, end: nil))
 					index[name, default: []].append(src)
 				}
 			}
