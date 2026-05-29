@@ -64,7 +64,7 @@ for (book, chapter_and_verse) in word {
 
 				if let tag = tag, tags.contains(tag) {
 					index[(text as NSString).substring(with: tokenRange),
-						default: []].append("\(Source(book: book, chapter: Int64(chapter)+1, start: Int64(verse)+1, end: nil))")
+						default: []].append("\(Source(book: book, chapter: UInt8(chapter)+1, start: UInt8(verse)+1, end: nil))")
 				}
 			}
 		}

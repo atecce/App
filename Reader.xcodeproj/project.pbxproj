@@ -17,6 +17,7 @@
 		7310F8AC2F9AD72F00EF3458 /* ReaderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310F8AB2F9AD72F00EF3458 /* ReaderUITestsLaunchTests.swift */; };
 		7326660D2FA66FE200D86FB4 /* Library in Frameworks */ = {isa = PBXBuildFile; productRef = 7326660C2FA66FE200D86FB4 /* Library */; };
 		73431D8A2FBAC90400687BDB /* Library in Frameworks */ = {isa = PBXBuildFile; productRef = 73431D892FBAC90400687BDB /* Library */; };
+		73431D8D2FC9F8AD00687BDB /* Library in Frameworks */ = {isa = PBXBuildFile; productRef = 73431D8C2FC9F8AD00687BDB /* Library */; };
 		738396E02F9C4ECE00918E0A /* BibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738396DF2F9C4ECE00918E0A /* BibleView.swift */; };
 		7387E1CD2FB656F100624A10 /* Library in Frameworks */ = {isa = PBXBuildFile; productRef = 7387E1CC2FB656F100624A10 /* Library */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73431D8D2FC9F8AD00687BDB /* Library in Frameworks */,
 				73431D8A2FBAC90400687BDB /* Library in Frameworks */,
 				7387E1CD2FB656F100624A10 /* Library in Frameworks */,
 				7326660D2FA66FE200D86FB4 /* Library in Frameworks */,
@@ -161,6 +163,7 @@
 				7326660C2FA66FE200D86FB4 /* Library */,
 				7387E1CC2FB656F100624A10 /* Library */,
 				73431D892FBAC90400687BDB /* Library */,
+				73431D8C2FC9F8AD00687BDB /* Library */,
 			);
 			productName = Reader;
 			productReference = 7310F8882F9AD72E00EF3458 /* Reader.app */;
@@ -235,7 +238,7 @@
 			);
 			mainGroup = 7310F87F2F9AD72E00EF3458;
 			packageReferences = (
-				73431D882FBAC90400687BDB /* XCLocalSwiftPackageReference "Library" */,
+				73431D8B2FC9F8AD00687BDB /* XCLocalSwiftPackageReference "Library" */,
 			);
 			productRefGroup = 7310F8892F9AD72E00EF3458 /* Products */;
 			projectDirPath = "";
@@ -633,7 +636,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		73431D882FBAC90400687BDB /* XCLocalSwiftPackageReference "Library" */ = {
+		73431D8B2FC9F8AD00687BDB /* XCLocalSwiftPackageReference "Library" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Library;
 		};
@@ -645,6 +648,10 @@
 			productName = Library;
 		};
 		73431D892FBAC90400687BDB /* Library */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Library;
+		};
+		73431D8C2FC9F8AD00687BDB /* Library */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Library;
 		};
